@@ -10,4 +10,10 @@
 
 @interface LabelledInputView : UIView
 
+- (instancetype)initWithLabelText:(NSString *)text;
+
+- (instancetype)initWithLabelText:(NSString *)text
+                isSecureTextEntry:(BOOL)isSecureTextEntry;
+
+- (void)setDelegate:(id)target;
 @end

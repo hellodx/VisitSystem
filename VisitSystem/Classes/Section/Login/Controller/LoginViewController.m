@@ -5,12 +5,18 @@
 //  Created by Star on 2018/4/26.
 //  Copyright © 2018年 Star. All rights reserved.
 //
-
-#import "LoginViewController.h"
-
 #import <Masonry/Masonry.h>
 
-@interface LoginViewController ()
+#import "LoginViewController.h"
+#import "UserModel.h"
+#import "LabelledInputView.h"
+
+@interface LoginViewController ()<UITextFieldDelegate>
+
+@property(nonatomic,strong) UIImageView *logoView;
+@property(nonatomic,strong) UserModel *userModal;
+@property(nonatomic,strong) LabelledInputView *userInputView;
+@property(nonatomic,strong) LabelledInputView *passwordInputView;
 
 @end
 
@@ -18,19 +24,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoginPageLogo"]];
-    logoView.contentMode = UIViewContentModeScaleToFill;
-    [self.view addSubview:logoView];
+    _userModal = [[UserModel alloc] init];
     
-    [logoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(200, 200));
-        make.centerX.equalTo(logoView.superview);
-        make.top.equalTo(self.view).with.offset(80);
-    }];
+    _logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoginPageLogo"]];
+//    _logoView.frame = CGRectMake(0, 0, 200, 200);
+    _logoView.contentMode = UIViewContentModeScaleToFill;
+    _logoView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.logoView];
+    
+    _userInputView = [[LabelledInputView alloc] initWithLabelText:@"手机号" isSecureTextEntry:NO];
+//    _userInputView.frame = CGRectMake(0, 0, 270, 30);
+    [_userInputView setDelegate:self];
+    [self.view addSubview:_userInputView];
+    
+    self.passwordInputView = [[LabelledInputView alloc] initWithLabelText:@"密码" isSecureTextEntry:YES];
+    [self.passwordInputView setDelegate:self];
+    [self.view addSubview:self.passwordInputView];
     
     
+    //视图创建完毕后设置约束
+    [self makeConstraints];
     
 }
 
@@ -39,14 +55,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)makeConstraints {
+    [self.logoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view).with.offset(80);
+    }];
+    
+    [self.userInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.logoView);
+        make.top.equalTo(self.logoView.mas_bottom).with.offset(50);
+    }];
+    
+    [self.passwordInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.userInputView.mas_bottom).with.offset(30);
+    }];
 }
-*/
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    return YES;
+}
 
 @end

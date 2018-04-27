@@ -1,0 +1,6 @@
+1.Masonry在对组合View添加约束时，自定义View内部需要对各个子View设置好各自frame，并且对view约束好size,否则在VC绘制View时会因为view或子view的frame参数错误导致布局不正确
+
+
+
+问题：
+1.autolayout没有改变frame中的x与y,如何实现正确显示？

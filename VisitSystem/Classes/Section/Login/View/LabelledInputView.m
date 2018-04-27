@@ -13,7 +13,7 @@
 @interface LabelledInputView()
 
 @property(nonatomic,strong) UILabel *label;
-@property(nonatomic,strong) UIInputView *inputView;
+@property(nonatomic,strong) UITextField *textField;
 
 @end
 
@@ -22,13 +22,55 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self){
-        self.label = [[UILabel alloc] init];
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+        self.label.textColor = [UIColor blackColor];
+        self.label.textAlignment = NSTextAlignmentCenter;
+        self.label.font = [UIFont systemFontOfSize:14];
         [self addSubview:self.label];
         
-        self.inputView = [[UIInputView alloc] init];
+        self.textField = [[UITextField alloc] initWithFrame:CGRectMake(70, 0, 200, 30)];
+        self.textField.borderStyle = UITextBorderStyleLine;
+        self.textField.backgroundColor = [UIColor whiteColor];
+        self.textField.font = [UIFont systemFontOfSize:14];
+        self.textField.textColor = [UIColor blackColor];
+        [self addSubview:self.textField];
         
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(270, 30));
+        }];
+//        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo(CGSizeMake(53, 30));
+//        }];
+//        
+//        [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo(CGSizeMake(200, 30));
+//            make.left.equalTo(_label.mas_right).with.offset(20);
+//            make.centerY.equalTo(_label);
+//        }];
     }
     return self;
+}
+
+- (instancetype)initWithLabelText:(NSString *)text {
+    self = [self init];
+    if(self){
+        self.label.text = text;
+    }
+    return self;
+}
+
+- (instancetype)initWithLabelText:(NSString *)text
+                isSecureTextEntry:(BOOL)isSecureTextEntry
+{
+    self = [self initWithLabelText:text];
+    if(self){
+        self.textField.secureTextEntry = isSecureTextEntry;
+    }
+    return self;
+}
+
+- (void)setDelegate:(id)target {
+    self.textField.delegate = target;
 }
 
 @end
