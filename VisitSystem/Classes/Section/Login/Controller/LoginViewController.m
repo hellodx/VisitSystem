@@ -30,13 +30,10 @@
     _userModal = [[UserModel alloc] init];
     
     _logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoginPageLogo"]];
-//    _logoView.frame = CGRectMake(0, 0, 200, 200);
     _logoView.contentMode = UIViewContentModeScaleToFill;
-    _logoView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:self.logoView];
     
     _userInputView = [[LabelledInputView alloc] initWithLabelText:@"手机号" isSecureTextEntry:NO];
-//    _userInputView.frame = CGRectMake(0, 0, 270, 30);
     [_userInputView setDelegate:self];
     [self.view addSubview:_userInputView];
     
@@ -44,10 +41,10 @@
     [self.passwordInputView setDelegate:self];
     [self.view addSubview:self.passwordInputView];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    [self.view addGestureRecognizer:tapRecognizer];
     
-    //视图创建完毕后设置约束
     [self makeConstraints];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,9 +70,18 @@
     }];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    return YES;
+- (void)closeKeyboard:(UITapGestureRecognizer *)gestureRecognizer {
+    [self.view endEditing:YES];
+}
+
+#pragma delegate methods
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if(textField.superview == self.userInputView){
+        self.userModal.phone = textField.text;
+    } else if (textField.superview == self.passwordInputView){
+        self.userModal.password = textField.text;
+    }
+    NSLog(@"%@",_userModal);
 }
 
 @end

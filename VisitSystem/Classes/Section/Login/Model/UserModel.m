@@ -10,4 +10,8 @@
 
 @implementation UserModel
 
+- (NSString *)description{
+    return [NSString stringWithFormat:@"UserModel:%p  phone:%@ password:%@",self,self.phone,self.password];
+}
+
 @end
