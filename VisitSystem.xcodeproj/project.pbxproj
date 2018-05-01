@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8B96E62096893F00F653F7 /* LoginButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B96E52096893F00F653F7 /* LoginButtonView.m */; };
+		0D8B96E920968C8900F653F7 /* UIColor+RGBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B96E820968C8900F653F7 /* UIColor+RGBColor.m */; };
 		3B1AD13C4A9C14E4FDF65286 /* libPods-VisitSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CA34655F68565AC124692E /* libPods-VisitSystem.a */; };
 		F8A83F562091B93400AE48AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F552091B93400AE48AE /* main.m */; };
 		F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F582091B93400AE48AE /* AppDelegate.m */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8B96E42096893F00F653F7 /* LoginButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginButtonView.h; sourceTree = "<group>"; };
+		0D8B96E52096893F00F653F7 /* LoginButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginButtonView.m; sourceTree = "<group>"; };
+		0D8B96E720968C8900F653F7 /* UIColor+RGBColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBColor.h"; sourceTree = "<group>"; };
+		0D8B96E820968C8900F653F7 /* UIColor+RGBColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBColor.m"; sourceTree = "<group>"; };
 		73B5E211EA61DA2332A463A2 /* Pods-VisitSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		84CA34655F68565AC124692E /* libPods-VisitSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisitSystem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0409F2D406D490679EA29F9 /* Pods-VisitSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +157,8 @@
 		F8A83F7A2091E97900AE48AE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0D8B96E720968C8900F653F7 /* UIColor+RGBColor.h */,
+				0D8B96E820968C8900F653F7 /* UIColor+RGBColor.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -202,6 +210,8 @@
 			children = (
 				F8A83F8E2091FA3600AE48AE /* LabelledInputView.h */,
 				F8A83F8F2091FA3600AE48AE /* LabelledInputView.m */,
+				0D8B96E42096893F00F653F7 /* LoginButtonView.h */,
+				0D8B96E52096893F00F653F7 /* LoginButtonView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,8 +235,6 @@
 				F8A83F4D2091B93300AE48AE /* Sources */,
 				F8A83F4E2091B93300AE48AE /* Frameworks */,
 				F8A83F4F2091B93300AE48AE /* Resources */,
-				FD18A7FDC79DBAE8BD363F5C /* [CP] Embed Pods Frameworks */,
-				01CE89F4807747C3B8FBE702 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,49 +324,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01CE89F4807747C3B8FBE702 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4CB002ABEA1046C86D521228 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VisitSystem-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FD18A7FDC79DBAE8BD363F5C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -372,6 +353,8 @@
 				F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */,
 				F8A83F902091FA3600AE48AE /* LabelledInputView.m in Sources */,
 				F8A83F562091B93400AE48AE /* main.m in Sources */,
+				0D8B96E920968C8900F653F7 /* UIColor+RGBColor.m in Sources */,
+				0D8B96E62096893F00F653F7 /* LoginButtonView.m in Sources */,
 				F8A83F872091ED8C00AE48AE /* UserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +501,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ujet.VisitSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -531,6 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ujet.VisitSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

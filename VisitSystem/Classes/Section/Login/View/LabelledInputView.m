@@ -8,7 +8,7 @@
 
 #import "LabelledInputView.h"
 
-#import <Masonry/Masonry.h>
+#import "Masonry.h"
 
 @interface LabelledInputView()
 
@@ -38,15 +38,6 @@
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(270, 30));
         }];
-//        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.size.mas_equalTo(CGSizeMake(53, 30));
-//        }];
-//        
-//        [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.size.mas_equalTo(CGSizeMake(200, 30));
-//            make.left.equalTo(_label.mas_right).with.offset(20);
-//            make.centerY.equalTo(_label);
-//        }];
     }
     return self;
 }
