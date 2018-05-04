@@ -4,3 +4,5 @@
 
 问题：
 1.autolayout+Masonry没有改变frame中的x与y,如何实现正确显示？
+
+2.Model转换为发送请求的对象（JSON）方法
