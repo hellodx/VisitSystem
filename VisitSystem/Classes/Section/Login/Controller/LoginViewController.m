@@ -6,6 +6,7 @@
 //  Copyright © 2018年 Star. All rights reserved.
 //
 #import "Masonry.h"
+#import "MBProgressHUD.h"
 
 #import "VSNetworkManager.h"
 #import "LoginViewController.h"
@@ -24,7 +25,7 @@
 @property(nonatomic,strong) LabelledInputView *userInputView;
 @property(nonatomic,strong) LabelledInputView *passwordInputView;
 @property(nonatomic,strong) LoginButtonView *loginButtonView;
-@property(nonatomic,strong) UIActivityIndicatorView *loginIndicatorView;
+@property(nonatomic,strong) MBProgressHUD *loginHUD;
 
 @end
 
@@ -66,9 +67,12 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
     [_loginView addGestureRecognizer:tapRecognizer];
     
-    self.loginIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [self.view addSubview:_loginIndicatorView];
-    
+    _loginHUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_loginHUD];
+    _loginHUD.label.text = @"登录中";
+    _loginHUD.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
+    _loginHUD.bezelView.color = [UIColor grayColor];
+    _loginHUD.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.1f];
     [self makeConstraints];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -113,11 +117,6 @@
         make.centerX.equalTo(_loginView);
         make.top.equalTo(self.passwordInputView.mas_bottom).with.offset(50);
     }];
-    
-    [self.loginIndicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view.mas_top).with.offset([UIScreen mainScreen].bounds.size.height/2);
-    }];
 }
 
 - (void)closeKeyboard:(UITapGestureRecognizer *)gestureRecognizer {
@@ -132,7 +131,7 @@
         self.userModal.password = textField.text;
     }
     
-    if(_userModal.phone.length!=0 && _userModal.password.length!=0){
+    if(_userModal.phone.length==11 && _userModal.password.length!=0){
         [self.loginButtonView enable];
     } else {
         [self.loginButtonView disable];
@@ -143,24 +142,27 @@
 - (void)Login:(UIButton *)button {
     [self.view endEditing:YES];
     
-    NSLog(@"userModal %@",_userModal);
-    
     __block NSURLSessionDataTask *loginTask = nil;
-    
     dispatch_queue_t networkQueue = dispatch_queue_create("ujet.networkQueue", DISPATCH_QUEUE_CONCURRENT);
     
+    [_loginHUD showAnimated:YES];
+    
     dispatch_async(networkQueue, ^{
-        [_loginIndicatorView startAnimating];
         loginTask = [[VSNetworkManager sharedManager] requestMethod:HTTPMethodPOST
                                                            severUrl:ServerBaseURL
                                                             apiPath:PATH_Login
                                                          parameters:[_userModal dictionaryForNetworkApplication]
                                                            progress:nil
                                                             success:^(BOOL isSuccess, id  _Nullable response) {
-                                                                [_loginIndicatorView stopAnimating];
+                                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                                    [_loginHUD hideAnimated:NO];
+                                                                });
+                                                                
                                                                 NSLog(@"success : %@",response);
                                                             } failure:^(NSString * _Nullable errorMessage) {
-                                                                [_loginIndicatorView stopAnimating];
+                                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                                    [_loginHUD hideAnimated:YES];
+                                                                });
                                                                 NSLog(@"fail : %@",errorMessage);
                                                             }];
 
