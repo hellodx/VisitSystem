@@ -12,9 +12,6 @@
 
 @interface LabelledInputView()
 
-@property(nonatomic,strong) UILabel *label;
-@property(nonatomic,strong) UITextField *textField;
-
 @end
 
 @implementation LabelledInputView

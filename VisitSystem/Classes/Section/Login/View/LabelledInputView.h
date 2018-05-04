@@ -10,6 +10,9 @@
 
 @interface LabelledInputView : UIView
 
+@property(nonatomic,strong) UILabel *label;
+@property(nonatomic,strong) UITextField *textField;
+
 - (instancetype)initWithLabelText:(NSString *)text;
 
 - (instancetype)initWithLabelText:(NSString *)text

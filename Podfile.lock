@@ -24,12 +24,6 @@ DEPENDENCIES:
   - Masonry
   - SDWebImage
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - AFNetworking
-    - Masonry
-    - SDWebImage
-
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -37,4 +31,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5a485777ff8e2501ba26865037c724e94c7f3998
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.2.1

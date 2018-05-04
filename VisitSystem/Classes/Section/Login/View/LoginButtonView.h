@@ -12,4 +12,8 @@
 
 @property (nonatomic,strong) UIButton *button;
 
+- (void)enable;
+
+- (void)disable;
+
 @end

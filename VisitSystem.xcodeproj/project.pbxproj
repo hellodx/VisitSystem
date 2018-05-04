@@ -10,6 +10,8 @@
 		0D8B96E62096893F00F653F7 /* LoginButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B96E52096893F00F653F7 /* LoginButtonView.m */; };
 		0D8B96E920968C8900F653F7 /* UIColor+RGBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B96E820968C8900F653F7 /* UIColor+RGBColor.m */; };
 		3B1AD13C4A9C14E4FDF65286 /* libPods-VisitSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CA34655F68565AC124692E /* libPods-VisitSystem.a */; };
+		F819E590209AAE1E00F493FC /* VSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F819E58F209AAE1E00F493FC /* VSNetworkManager.m */; };
+		F819E594209C3E9F00F493FC /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F819E593209C3E9F00F493FC /* NSString+MD5.m */; };
 		F8A83F562091B93400AE48AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F552091B93400AE48AE /* main.m */; };
 		F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F582091B93400AE48AE /* AppDelegate.m */; };
 		F8A83F612091B93400AE48AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A83F602091B93400AE48AE /* Assets.xcassets */; };
@@ -38,6 +40,11 @@
 		73B5E211EA61DA2332A463A2 /* Pods-VisitSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		84CA34655F68565AC124692E /* libPods-VisitSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisitSystem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0409F2D406D490679EA29F9 /* Pods-VisitSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem.release.xcconfig"; sourceTree = "<group>"; };
+		F819E58E209AAE1E00F493FC /* VSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSNetworkManager.h; sourceTree = "<group>"; };
+		F819E58F209AAE1E00F493FC /* VSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSNetworkManager.m; sourceTree = "<group>"; };
+		F819E591209AB8AA00F493FC /* VSHTTPInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSHTTPInterface.h; sourceTree = "<group>"; };
+		F819E592209C3E9F00F493FC /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		F819E593209C3E9F00F493FC /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		F8A83F512091B93400AE48AE /* VisitSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A83F552091B93400AE48AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F8A83F572091B93400AE48AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +166,8 @@
 			children = (
 				0D8B96E720968C8900F653F7 /* UIColor+RGBColor.h */,
 				0D8B96E820968C8900F653F7 /* UIColor+RGBColor.m */,
+				F819E592209C3E9F00F493FC /* NSString+MD5.h */,
+				F819E593209C3E9F00F493FC /* NSString+MD5.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -166,6 +175,9 @@
 		F8A83F7B2091E97900AE48AE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F819E58E209AAE1E00F493FC /* VSNetworkManager.h */,
+				F819E58F209AAE1E00F493FC /* VSNetworkManager.m */,
+				F819E591209AB8AA00F493FC /* VSHTTPInterface.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -235,6 +247,8 @@
 				F8A83F4D2091B93300AE48AE /* Sources */,
 				F8A83F4E2091B93300AE48AE /* Frameworks */,
 				F8A83F4F2091B93300AE48AE /* Resources */,
+				0279D6C4CDE6A492BEA68925 /* [CP] Embed Pods Frameworks */,
+				99FAF22181D29B49F86426AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +338,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0279D6C4CDE6A492BEA68925 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4CB002ABEA1046C86D521228 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,7 +368,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		99FAF22181D29B49F86426AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VisitSystem/Pods-VisitSystem-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -352,8 +396,10 @@
 				F8A83F8A2091EF1C00AE48AE /* LoginViewController.m in Sources */,
 				F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */,
 				F8A83F902091FA3600AE48AE /* LabelledInputView.m in Sources */,
+				F819E594209C3E9F00F493FC /* NSString+MD5.m in Sources */,
 				F8A83F562091B93400AE48AE /* main.m in Sources */,
 				0D8B96E920968C8900F653F7 /* UIColor+RGBColor.m in Sources */,
+				F819E590209AAE1E00F493FC /* VSNetworkManager.m in Sources */,
 				0D8B96E62096893F00F653F7 /* LoginButtonView.m in Sources */,
 				F8A83F872091ED8C00AE48AE /* UserModel.m in Sources */,
 			);

@@ -26,6 +26,9 @@
         self.button.layer.cornerRadius = 4;
         self.button.layer.masksToBounds = YES;
         
+        [self disable];
+//        self.button.enabled = NO;
+        
 //        self.button.showsTouchWhenHighlighted = YES;
         
         [self addSubview:self.button];
@@ -35,6 +38,20 @@
         }];
     }
     return self;
+}
+
+- (void)enable {
+    if(self){
+        self.button.alpha = 1.0;
+        self.button.enabled = YES;
+    }
+}
+
+- (void)disable {
+    if(self){
+        self.button.alpha = 0.5;
+        self.button.enabled = NO;
+    }
 }
 
 @end

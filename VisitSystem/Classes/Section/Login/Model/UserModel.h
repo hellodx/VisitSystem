@@ -13,4 +13,9 @@
 @property (nonatomic,copy)NSString *phone;
 @property (nonatomic,copy)NSString *password;
 
+/*
+ *  将模型转换为网络请求的字典对象，password需要md5加密
+ */
+- (NSDictionary *)dictionaryForNetworkApplication;
+
 @end
