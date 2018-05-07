@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 
+#import "MainTabViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -22,9 +24,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     //初始化首屏VC
     //TODO:判断首屏VC
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    //LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    MainTabViewController *tabVC = [[MainTabViewController alloc] init];
     //创建导航控制器
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabVC];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

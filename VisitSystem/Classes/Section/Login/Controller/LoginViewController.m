@@ -9,8 +9,8 @@
 #import "MBProgressHUD.h"
 
 #import "VSNetworkManager.h"
-#import "LoginViewController.h"
 #import "UserModel.h"
+#import "LoginViewController.h"
 #import "LabelledInputView.h"
 #import "LoginButtonView.h"
 
@@ -31,10 +31,12 @@
 
 @implementation LoginViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.navigationBarHidden = YES;
     
     _loginView = [[UIView alloc] init];
     _loginView.backgroundColor = [UIColor whiteColor];
@@ -155,7 +157,7 @@
                                                            progress:nil
                                                             success:^(BOOL isSuccess, id  _Nullable response) {
                                                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                                                    [_loginHUD hideAnimated:NO];
+                                                                    [_loginHUD hideAnimated:YES];
                                                                 });
                                                                 
                                                                 NSLog(@"success : %@",response);
