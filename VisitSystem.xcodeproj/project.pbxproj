@@ -12,6 +12,9 @@
 		3B1AD13C4A9C14E4FDF65286 /* libPods-VisitSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CA34655F68565AC124692E /* libPods-VisitSystem.a */; };
 		F819E590209AAE1E00F493FC /* VSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F819E58F209AAE1E00F493FC /* VSNetworkManager.m */; };
 		F819E594209C3E9F00F493FC /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F819E593209C3E9F00F493FC /* NSString+MD5.m */; };
+		F898449720A0489B00DB7D89 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F898449620A0489B00DB7D89 /* HomeViewController.m */; };
+		F898449A20A048AB00DB7D89 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F898449920A048AB00DB7D89 /* MyViewController.m */; };
+		F898449D20A04E0F00DB7D89 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F898449C20A04E0F00DB7D89 /* MainTabViewController.m */; };
 		F8A83F562091B93400AE48AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F552091B93400AE48AE /* main.m */; };
 		F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A83F582091B93400AE48AE /* AppDelegate.m */; };
 		F8A83F612091B93400AE48AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A83F602091B93400AE48AE /* Assets.xcassets */; };
@@ -45,6 +48,12 @@
 		F819E591209AB8AA00F493FC /* VSHTTPInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSHTTPInterface.h; sourceTree = "<group>"; };
 		F819E592209C3E9F00F493FC /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		F819E593209C3E9F00F493FC /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		F898449520A0489B00DB7D89 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F898449620A0489B00DB7D89 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F898449820A048AB00DB7D89 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		F898449920A048AB00DB7D89 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		F898449B20A04E0F00DB7D89 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
+		F898449C20A04E0F00DB7D89 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		F8A83F512091B93400AE48AE /* VisitSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A83F552091B93400AE48AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F8A83F572091B93400AE48AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +107,91 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		F898448120A045B900DB7D89 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				F898449B20A04E0F00DB7D89 /* MainTabViewController.h */,
+				F898449C20A04E0F00DB7D89 /* MainTabViewController.m */,
+				F898448320A0460000DB7D89 /* My */,
+				F898448220A045F200DB7D89 /* Home */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		F898448220A045F200DB7D89 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F898449220A0481F00DB7D89 /* Controller */,
+				F898449320A0481F00DB7D89 /* Model */,
+				F898449420A0481F00DB7D89 /* View */,
+			);
+			name = Home;
+			path = MainTab/Home;
+			sourceTree = "<group>";
+		};
+		F898448320A0460000DB7D89 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				F898448E20A047FB00DB7D89 /* Controller */,
+				F898448F20A047FB00DB7D89 /* Model */,
+				F898449020A047FB00DB7D89 /* View */,
+			);
+			name = My;
+			path = MainTab/My;
+			sourceTree = "<group>";
+		};
+		F898448E20A047FB00DB7D89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F898449820A048AB00DB7D89 /* MyViewController.h */,
+				F898449920A048AB00DB7D89 /* MyViewController.m */,
+			);
+			name = Controller;
+			path = VisitSystem/Classes/Section/MainTab/My/Controller;
+			sourceTree = SOURCE_ROOT;
+		};
+		F898448F20A047FB00DB7D89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = VisitSystem/Classes/Section/MainTab/My/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		F898449020A047FB00DB7D89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = VisitSystem/Classes/Section/MainTab/My/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		F898449220A0481F00DB7D89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F898449520A0489B00DB7D89 /* HomeViewController.h */,
+				F898449620A0489B00DB7D89 /* HomeViewController.m */,
+			);
+			name = Controller;
+			path = VisitSystem/Classes/Section/MainTab/Home/Controller;
+			sourceTree = SOURCE_ROOT;
+		};
+		F898449320A0481F00DB7D89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = VisitSystem/Classes/Section/MainTab/Home/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		F898449420A0481F00DB7D89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = VisitSystem/Classes/Section/MainTab/Home/View;
+			sourceTree = SOURCE_ROOT;
 		};
 		F8A83F482091B93300AE48AE = {
 			isa = PBXGroup;
@@ -231,6 +325,7 @@
 		F8A83F812091E97900AE48AE /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				F898448120A045B900DB7D89 /* MainTab */,
 				F8A83F7D2091E97900AE48AE /* Login */,
 			);
 			path = Section;
@@ -394,10 +489,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A83F8A2091EF1C00AE48AE /* LoginViewController.m in Sources */,
+				F898449D20A04E0F00DB7D89 /* MainTabViewController.m in Sources */,
 				F8A83F592091B93400AE48AE /* AppDelegate.m in Sources */,
 				F8A83F902091FA3600AE48AE /* LabelledInputView.m in Sources */,
 				F819E594209C3E9F00F493FC /* NSString+MD5.m in Sources */,
 				F8A83F562091B93400AE48AE /* main.m in Sources */,
+				F898449A20A048AB00DB7D89 /* MyViewController.m in Sources */,
+				F898449720A0489B00DB7D89 /* HomeViewController.m in Sources */,
 				0D8B96E920968C8900F653F7 /* UIColor+RGBColor.m in Sources */,
 				F819E590209AAE1E00F493FC /* VSNetworkManager.m in Sources */,
 				0D8B96E62096893F00F653F7 /* LoginButtonView.m in Sources */,

@@ -1,0 +1,32 @@
+1.Masonry在对组合View添加约束时，自定义View内部需要对各个子View设置好各自frame，并且对view约束好size,否则在VC绘制View时会因为view或子view的frame参数错误导致布局不正确
+
+
+
+问题：
+1.autolayout+Masonry没有改变frame中的x与y,如何实现正确显示？
+
+2.Model转换为发送请求的对象（JSON）方法
+
+
+
+
+
+Category {
+	1.UIColor+RGBColor，可以使用RGB字符串例如"#ffffff"初始化UIColor
+	2.NSString+MD5，将字符串MD5加密
+}
+
+Common {
+	1.VSNetworkManager 对AFN的网络请求的封装，使用单例模式.请求失败时利用打印AFN封装的Error与Task的response
+}
+
+Section {
+	Login {
+		//登录界面
+		1.使用Masonry写Autolayout的约束
+		2.Target-Action监听UITextField改变，输入合法时enable登录按钮
+		3.NSNotification获取键盘Frame变化，当键盘发生遮挡时更新view的约束以调整view位置
+		4.使用MBProgressHUD在登录网络请求时显示菊花动画
+		5.网络请求回调时使用GCD返回主线程UI更新
+	}
+}

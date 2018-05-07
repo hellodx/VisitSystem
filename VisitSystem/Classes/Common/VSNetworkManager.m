@@ -145,7 +145,7 @@ static VSNetworkManager *networkManager = nil;
  */
 - (NSString *)failHandleWithErrorResponse:(NSError * _Nullable)error
                                      task:(NSURLSessionDataTask * _Nullable)task {
-    __block NSString *message = nil;
+    NSString *message = nil;
     //利用AFN的错误信息
     NSData *afN_errorMsg = [error.userInfo objectForKey:AFNetworkingOperationFailingURLResponseDataErrorKey];
     
@@ -153,6 +153,7 @@ static VSNetworkManager *networkManager = nil;
     
     if(!afN_errorMsg)
         message = @"网络连接失败";
+    
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
     NSInteger responseCode = response.statusCode;
     
@@ -160,7 +161,7 @@ static VSNetworkManager *networkManager = nil;
                                                                    options:NSJSONReadingAllowFragments
                                                                      error:nil];
     message = responseObject[@"error"];
-    NSLog(@"error : %@",error);
+    NSLog(@"responseCode : %d ---- error : %@",(int)responseCode,error);
     
     return message;
 }

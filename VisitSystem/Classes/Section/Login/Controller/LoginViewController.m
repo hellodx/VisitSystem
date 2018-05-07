@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBarHidden = YES;
     
     _loginView = [[UIView alloc] init];
     _loginView.backgroundColor = [UIColor whiteColor];
@@ -55,8 +55,8 @@
     self.passwordInputView = [[LabelledInputView alloc] initWithLabelText:@"密码" isSecureTextEntry:YES];
     [_loginView addSubview:self.passwordInputView];
     [self.passwordInputView.textField addTarget:self
-                                 action:@selector(textFieldTextChange:)
-                       forControlEvents:UIControlEventEditingChanged];
+                                         action:@selector(textFieldTextChange:)
+                               forControlEvents:UIControlEventEditingChanged];
     
     self.loginButtonView = [[LoginButtonView alloc] init];
     [self.loginButtonView.button addTarget:self

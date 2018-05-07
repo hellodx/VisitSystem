@@ -4,4 +4,5 @@ pod 'AFNetworking'
 pod 'Masonry'
 pod 'SDWebImage'
 pod 'MBProgressHUD'
+pod 'FontAwesomeKit', '~> 2.2.0'
 end
